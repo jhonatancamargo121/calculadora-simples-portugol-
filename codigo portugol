@@ -1,0 +1,40 @@
+programa
+{
+
+	funcao inicio()
+	{
+		//Declaração das variáveis
+		real valor, porcentagem, valorPorcentagem
+		real valorDesconto, valorJuros
+		real selic, valorFuturo
+		inteiro anos
+
+		//Dados do produto
+		escreva("Informe o valor do produto: R$ ")
+		leia(valor)
+
+		escreva("Informe a porcentagem: ")
+		leia(porcentagem)
+
+		//Calcula desconto e juros da loja
+		valorPorcentagem = (porcentagem * valor) / 100
+		valorDesconto = valor - valorPorcentagem
+		valorJuros = valor + valorPorcentagem
+
+		//Dados para o investimento na Selic
+		escreva("Informe a taxa Selic ao ano (%): ")
+		leia(selic)
+
+		escreva("Informe quantos anos o dinheiro vai render: ")
+		leia(anos)
+
+		//Juros compostos: M = C * (1 + i) ^ n
+		valorFuturo = valor * mat.potencia(1 + selic / 100, anos * 1.0)
+
+		//Resultados
+		escreva("\nValor com desconto: R$ ", mat.arredondar(valorDesconto, 2))
+		escreva("\nValor com juros: R$ ", mat.arredondar(valorJuros, 2))
+		escreva("\nSe investir R$ ", valor, " na Selic por ", anos, " anos,")
+		escreva("\nvai ter R$ ", mat.arredondar(valorFuturo, 2), "\n")
+	}
+}
